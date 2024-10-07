@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - All Language Translator</title>
+    <style>
+      /* General Styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f4;
+        color: #333;
+        padding: 20px;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: teal;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .navbar a:hover {
+        background-color: #006666;
+        border-radius: 5px;
+      }
+
+      .navbar div.logo {
+        font-size: 1.5em;
+        color: yellow;
+        font-weight: bold;
+      }
+
+      /* Main Content Styling */
+      .content {
+        margin-top: 50px;
+        background-color: white;
+        padding: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: teal;
+        margin-bottom: 20px;
+        font-size: 2.5em;
+      }
+
+      p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .about-service {
+        font-size: 1.1em;
+        text-align: left;
+        line-height: 1.8;
+        margin-top: 20px;
+        color: #555;
+      }
+
+      /* Footer Styling */
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        color: teal;
+        font-size: 1em;
+      }
+
+      footer p {
+        padding: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">Translator</div>
+      <div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('translate_text') }}">Translate</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contactus') }}">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h1>About Us</h1>
+      <p>
+        Welcome to <strong>All Language Translator</strong>, an advanced web
+        application designed to make global communication easy. Leveraging the
+        power of artificial intelligence, our service allows you to translate
+        text into multiple languages with just a few clicks.
+      </p>
+
+      <div class="about-service">
+        <h2>What We Offer</h2>
+        <p>
+          Our service is built to be simple yet highly effective, catering to
+          users who need reliable translations without complexity. Whether
+          you're translating a sentence or a lengthy document,
+          <strong>All Language Translator</strong> ensures accuracy and fluency
+          in over a dozen languages, including English, French, Spanish,
+          Chinese, and many more.
+        </p>
+
+        <p>
+          We utilize cutting-edge natural language processing (NLP) technology
+          to deliver high-quality translations. Our platform is ideal for
+          travelers, students, professionals, and anyone else who needs fast,
+          reliable translation services.
+        </p>
+
+        <p>
+          You can rest assured that our AI-powered tool takes into account the
+          nuances of each language, ensuring that your translated text is both
+          accurate and culturally appropriate.
+        </p>
+
+        <h2>Why Choose Us?</h2>
+        <p>
+          Our translation service stands out because of its speed, simplicity,
+          and efficiency. Here’s what makes us unique:
+        </p>
+        <ul>
+          <li>
+            <strong>Wide Language Support:</strong> Translate text into 12+
+            languages, with more being added regularly.
+          </li>
+          <li>
+            <strong>Intuitive Interface:</strong> Our user-friendly interface
+            makes it easy to input your text, select your language, and get
+            instant translations.
+          </li>
+          <li>
+            <strong>AI-Powered Accuracy:</strong> We leverage the latest AI
+            technology to ensure your translations are as accurate as possible,
+            respecting context and syntax.
+          </li>
+          <li>
+            <strong>Seamless Experience:</strong> Whether you're on a desktop,
+            tablet, or mobile, our platform provides a smooth and seamless
+            experience.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 All Language Translator | Powered by AI Translation</p>
+    </footer>
+  </body>
+</html>

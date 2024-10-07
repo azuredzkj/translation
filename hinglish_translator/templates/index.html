@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Language Translator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f4;
+        color: #333;
+        padding: 20px;
+      }
+
+      .navbar {
+        background-color: teal;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .navbar a:hover {
+        background-color: #006666;
+        border-radius: 5px;
+      }
+
+      .navbar div.logo {
+        font-size: 1.5em;
+        color: yellow;
+        font-weight: bold;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 900px;
+        margin: 50px auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .half-section {
+        width: 48%;
+      }
+
+      h1 {
+        color: teal;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2.5em;
+      }
+
+      label {
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+        font-size: 1.1em;
+      }
+
+      textarea,
+      select {
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #ddd;
+        padding: 12px;
+        border-radius: 8px;
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 1em;
+      }
+
+      textarea:focus,
+      select:focus {
+        border-color: teal;
+        outline: none;
+      }
+
+      .btn-translate {
+        background-color: yellow;
+        color: #333;
+        padding: 15px;
+        border: none;
+        width: 100%;
+        border-radius: 8px;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-translate:hover {
+        background-color: #f1c40f;
+      }
+
+      .translated-text {
+        font-size: 1.1em;
+        background-color: #fafafa;
+        color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 25px;
+        word-wrap: break-word;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        color: teal;
+        font-size: 1em;
+      }
+
+      footer p {
+        padding: 20px 0;
+      }
+      .pad{
+        padding:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">Translator</div>
+      <div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('translate_text') }}">Translate</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contactus') }}">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Main Container -->
+    <h1 class="pad">All Language Translator</h1>
+    <div class="container">
+      <!-- Left Side -->
+      <div class="half-section">
+        <form method="POST" action="/translate">
+          <label for="src_lang">Select Source Language:</label>
+          <select name="src_lang" id="src_lang" required>
+            {% for code, lang in languages.items() %}
+            <option value="{{ code }}" {% if request.form['src_lang'] == code %} selected {% endif %}>
+              {{ lang }}
+            </option>
+            {% endfor %}
+          </select>
+
+          <label for="text">Text to Translate:</label>
+          <textarea name="text" id="text" rows="10" required>{{ original_text }}</textarea>
+      </div>
+
+      <!-- Right Side -->
+      <div class="half-section">
+        <label for="target_lang">Select Target Language:</label>
+        <select name="target_lang" id="target_lang" required>
+          {% for code, lang in languages.items() %}
+          <option value="{{ code }}" {% if request.form['target_lang'] == code %} selected {% endif %}>
+            {{ lang }}
+          </option>
+          {% endfor %}
+        </select>
+
+        <label for="translation">Translated Text:</label>
+        <textarea id="translation" rows="10" disabled>{% if translation %}{{ translation }}{% endif %}</textarea>
+      </div>
+    </div>
+
+    <div class="container">
+      <button type="submit" class="btn-translate">Translate</button>
+    </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 All Language Translator</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - All Language Translator</title>
+    <style>
+      /* General Styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f4;
+        color: #333;
+        padding: 20px;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: teal;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .navbar a:hover {
+        background-color: #006666;
+        border-radius: 5px;
+      }
+
+      .navbar div.logo {
+        font-size: 1.5em;
+        color: yellow;
+        font-weight: bold;
+      }
+
+      /* Main Content Styling */
+      .content {
+        margin-top: 50px;
+        background-color: white;
+        padding: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: teal;
+        margin-bottom: 20px;
+        font-size: 2.5em;
+      }
+
+      p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      label {
+        color: #333;
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: teal;
+        outline: none;
+      }
+
+      .btn-submit {
+        background-color: teal;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-submit:hover {
+        background-color: #006666;
+      }
+
+      /* Footer Styling */
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        color: teal;
+        font-size: 1em;
+      }
+
+      footer p {
+        padding: 20px 0;
+      }
+    </style>
+
+    <!-- JavaScript to display a thank you message -->
+    <script>
+      function showAlert() {
+        alert("Thank you for your response. We will get back to you shortly!");
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">Translator</div>
+      <div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('translate_text') }}">Translate</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contactus') }}">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h1>Contact Us</h1>
+      <p>
+        If you have any questions, feel free to contact us using the form below.
+      </p>
+      <form method="POST" onsubmit="showAlert()">
+        <label for="name">Your Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
+
+        <label for="email">Your Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="message">Your Message:</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Enter your message here"
+          required
+        ></textarea>
+
+        <button type="submit" class="btn-submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 All Language Translator | Powered by AI Translation</p>
+    </footer>
+  </body>
+</html>
